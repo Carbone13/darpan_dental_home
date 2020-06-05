@@ -48,7 +48,7 @@ class _ProfileState extends State<Profile> {
                 overflow: Overflow.visible,
                 children: <Widget>[
                   Container(
-                    height: 280,
+                    height: 325,
                     width: MediaQuery.of(context).size.width / 1.1,
                     decoration: boxDecoration.copyWith(color: Colors.grey[200]),
                     child: Column(
@@ -118,7 +118,36 @@ class _ProfileState extends State<Profile> {
                             ),
                           ],
                         ),
-                        Divider(thickness: 0.4,height: 35, indent: 20, endIndent: 20,)
+                        SizedBox(height: 10,),
+                        Divider(thickness: 0.4,height: 15, indent: 20, endIndent: 20,),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: MaterialButton(
+                            onPressed: () {},
+                            height: 30,
+                            elevation: 0,
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.edit),
+                                SizedBox(width: 20,),
+                                Text(
+                                    'Edit Profile',
+                                    style: GoogleFonts.rubik(
+                                      textStyle: TextStyle(
+                                        fontSize: 15,
+                                      ),
+                                    )
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
