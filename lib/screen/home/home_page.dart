@@ -273,13 +273,18 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10,0,0),
-                    child: IconButton(
-                      iconSize: 35,
-                      icon: Icon(Icons.menu,color: Color(0xff4CBBB9)),
-                      onPressed: () {
-                        _scaffoldKey.currentState.openDrawer();
-                      },
+                    padding: const EdgeInsets.fromLTRB(20, 10,0,0),
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      child: InkWell(
+                        onTap: () {
+                          _scaffoldKey.currentState.openDrawer();
+                        },
+                        child: SvgPicture.asset(
+                          'assets/icons/menu.svg'
+                        ),
+                      ),
                     ),
                   ),
                   Container(
