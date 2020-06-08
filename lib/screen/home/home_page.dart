@@ -236,7 +236,6 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Divider(),
             Container(
               padding: EdgeInsets.only(bottom: 10),
               child: Align(
@@ -282,7 +281,7 @@ class _HomeState extends State<Home> {
                           _scaffoldKey.currentState.openDrawer();
                         },
                         child: SvgPicture.asset(
-                          'assets/icons/menu.svg'
+                          'assets/icons/menu.svg',
                         ),
                       ),
                     ),

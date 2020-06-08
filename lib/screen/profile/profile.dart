@@ -48,7 +48,7 @@ class _ProfileState extends State<Profile> {
                 overflow: Overflow.visible,
                 children: <Widget>[
                   Container(
-                    height: 325,
+                    height: 320,
                     width: MediaQuery.of(context).size.width / 1.1,
                     decoration: boxDecoration.copyWith(color: Colors.grey[200]),
                     child: Column(
@@ -155,13 +155,13 @@ class _ProfileState extends State<Profile> {
                     bottom: -40,
                     left: 15,
                     child: Container(
-                      height: 100,
+                      height: 90,
                       width: 162,
                       decoration: boxDecoration.copyWith(color: Color(0xffDBE5FE)),
                       child: Column(
                         children: <Widget>[
                           Padding(
-                              padding: const EdgeInsets.fromLTRB(10,10,20,0),
+                              padding: const EdgeInsets.fromLTRB(10,10,10,0),
                               child: Text(
                                   'Dental',
                                   textAlign: TextAlign.center,
@@ -175,7 +175,7 @@ class _ProfileState extends State<Profile> {
                               )
                           ),
                           Padding(
-                              padding: const EdgeInsets.fromLTRB(10,10,20,0),
+                              padding: const EdgeInsets.fromLTRB(10,5,10,5),
                               child: Text(
                                   '2',
                                   textAlign: TextAlign.center,
@@ -196,13 +196,13 @@ class _ProfileState extends State<Profile> {
                     bottom: -40,
                     right: 15,
                     child: Container(
-                      height: 100,
+                      height: 90,
                       width: 162,
                       decoration: boxDecoration.copyWith(color: Color(0xffFFEFE1)),
                       child: Column(
                         children: <Widget>[
                           Padding(
-                              padding: const EdgeInsets.fromLTRB(10,10,20,0),
+                              padding: const EdgeInsets.fromLTRB(10,10,10,0),
                               child: Text(
                                   'Normal',
                                   textAlign: TextAlign.center,
@@ -216,7 +216,7 @@ class _ProfileState extends State<Profile> {
                               )
                           ),
                           Padding(
-                              padding: const EdgeInsets.fromLTRB(10,10,20,0),
+                              padding: const EdgeInsets.fromLTRB(10,5,10,5),
                               child: Text(
                                   '1',
                                   textAlign: TextAlign.center,

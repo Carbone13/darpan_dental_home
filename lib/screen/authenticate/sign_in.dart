@@ -1,6 +1,7 @@
 import 'package:darpandentalhome/services/auth.dart';
 import 'package:darpandentalhome/shared/const.dart';
 import 'package:darpandentalhome/shared/loading.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,6 +25,53 @@ class _SignInState extends State<SignIn> {
 
   String email = '';
   String password = '';
+
+  BannerAd _bannerAd;
+  InterstitialAd _interstitialAd;
+
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    keywords: <String>['pubg', 'game'],
+    testDevices: <String>[], // Android emulators are considered test devices
+    childDirected: true
+  );
+
+  BannerAd createBannerAd(){
+    return BannerAd(
+      adUnitId: "ca-app-pub-9344650233830061/8322674238",
+      size: AdSize.banner,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("Banner event: $event");
+      }
+    );
+  }
+  InterstitialAd createInterstitialAd(){
+    return InterstitialAd(
+        adUnitId: "ca-app-pub-9344650233830061/5908263882",
+        targetingInfo: targetingInfo,
+        listener: (MobileAdEvent event) {
+          print("Interstitial event: $event");
+        }
+    );
+  }
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseAdMob.instance.initialize(appId: "ca-app-pub-9344650233830061~2285052956");
+    _bannerAd = createBannerAd()..load()..show(
+      anchorType: AnchorType.top
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _bannerAd.dispose();
+    _interstitialAd.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +176,7 @@ class _SignInState extends State<SignIn> {
               shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
               color: Color(0xff4CBBB9),
               onPressed: () async {
+                createInterstitialAd()..load()..show();
                 if(_formKey.currentState.validate()){
                   setState(() {
                     loading = true;
